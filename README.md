@@ -7,8 +7,6 @@
 
 ### Installation and usage
 
-_Below is an example of how you can instruct your audience on installing and setting up your app. This template doesn't rely on any external dependencies or services._
-
 1. Clone the project
 ```
 git clone https://github.com/alimuteshov/parser.git
@@ -17,11 +15,11 @@ git clone https://github.com/alimuteshov/parser.git
 ```
 cd parser
 ```
-3. run
+3. Create data directory(all parsing results will be stored in this diectory)
 ```
 bash start.sh
 ```
-4. run
+4. Build docker image
 ```
 docker build -t parser .
 ```
