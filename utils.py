@@ -1,33 +1,43 @@
 import requests
 from bs4 import BeautifulSoup
-from selenium import webdriver
-from selenium.webdriver.chrome.service import Service
-from selenium.webdriver.common.by import By
 from datetime import datetime
-import time
 from typing import Dict, List, Tuple
 
+# from selenium import webdriver
+# from selenium.webdriver.chrome.service import Service
+# from selenium.webdriver.common.by import By
 
-def get_last_page_url(url: str) -> str:
-    """Takes a link to the main page and returns the link of the last page."""
-    service = Service("YOUR_PATH")
-    driver = webdriver.Chrome(service=service)
 
-    driver.get(url)
-    driver.maximize_window()
-    time.sleep(5)
-    driver.find_element(
-        By.XPATH,
-        "//button[@class='decline-button eu-cookie-compliance-secondary-button button clear inverted']",
-    ).click()
-    time.sleep(5)
-    driver.find_element(By.XPATH, "//a[@title='Go to last page']").click()
-    time.sleep(6)
-    current_url = driver.current_url
-    driver.close()
-    driver.quit()
+# def get_last_page_url_old(url: str) -> str:
+#     """Takes a link to the main page and returns the link of the last page."""
+#     service = Service("chromedriver/chromedriver")
+#     driver = webdriver.Chrome(service=service)
+#
+#
+#     #print(driver.capabilities)
+#
+#     driver.get(url)
+#     driver.maximize_window()
+#     time.sleep(5)
+#     driver.find_element(
+#         By.XPATH,
+#         "//button[@class='decline-button eu-cookie-compliance-secondary-button button clear inverted']",
+#     ).click()
+#     time.sleep(5)
+#     driver.find_element(By.XPATH, "//a[@title='Go to last page']").click()
+#     time.sleep(6)
+#     current_url = driver.current_url
+#     driver.close()
+#     driver.quit()
+#
+#     return current_url
 
-    return current_url
+
+def get_last_page_url(url: str, headers: Dict[str, str]) -> str:
+    req = requests.get(url, headers=headers)
+    src = req.text
+    soup = BeautifulSoup(src, "lxml")
+    return soup.find("a", title="Go to last page").get("href")
 
 
 def parse_info_from_pages(
