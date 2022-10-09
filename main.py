@@ -12,10 +12,11 @@ logging.basicConfig(level=os.environ.get("LOGLEVEL", "INFO"))
 
 
 def main():
-    url = "URL"
+    url = "https://www.aceee.org/news"
+
     headers = {
-        "Accept": "SMTH",
-        "User-Agent": "SMTH",
+        "Accept": "*/*",
+        "User-Agent": "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:105.0) Gecko/20100101 Firefox/105.0",
     }
 
     last_page_url = get_last_page_url(url, headers=headers)
