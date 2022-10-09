@@ -34,6 +34,7 @@ from typing import Dict, List, Tuple
 
 
 def get_last_page_url(url: str, headers: Dict[str, str]) -> str:
+    """Takes a link to the main page and returns the link of the last page."""
     req = requests.get(url, headers=headers)
     src = req.text
     soup = BeautifulSoup(src, "lxml")
