@@ -1,7 +1,6 @@
 import argparse
 import pandas as pd
 import spacy
-from utils_app import check, plot_ym
 import matplotlib.pyplot as plt
 from pandas.core.frame import DataFrame
 
