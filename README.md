@@ -28,13 +28,13 @@ docker build -t parser .
 docker run --rm -v $(pwd):/usr/src/app -w /usr/src/app parser
 ```
 
-#### In order to use aggregation_app, you should install pandas, matplotlib and spacy.
+#### In order to use aggregation_app, you should install pandas, matplotlib and spacy
 You can do it by running 
 ```
 bash aggregation_install.ssh
 ```
 Examples:
-When evaluating 1_task and 2_task you need to specify start and end dates.
+When evaluating 1_task and 2_task you need to specify start and end dates:
 ```
 python aggregation_app.py 1_task -s '2021-05' -e '2021-09'
 ```
