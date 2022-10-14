@@ -44,3 +44,6 @@ python aggregation_app.py 2_task -s '2021-05' -e '2021-09'
 ```
 python aggregation_app.py 3_task
 ```
+todo:
+-remove sh scripts
+-specify all versions in aggregation app
